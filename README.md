@@ -27,16 +27,16 @@
    `$ npm run start`
 
 1. alles angucken
-   - /app/src/*
+   - /src/app/*
 
 # componenten erstellen
 
 1. todo-details componente erstellen
-   - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "todo-details"
+   - PHPStorm /src/app/* RMB -> new -> angular schematic -> component -> "todo-details"
    - alternativ cli: ng generate component todo-details
 
 2. dashboard componente erstellen
-   - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "dashboard"
+   - PHPStorm /src/app/* RMB -> new -> angular schematic -> component -> "dashboard"
    - alternativ cli: ng generate component dashboard
 
 # routing
