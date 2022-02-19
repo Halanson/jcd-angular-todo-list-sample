@@ -15,8 +15,8 @@
 
 2. angular app erstellen
    `$ ng new todo-list-app --strict`
-  - routing: yes
-  - stylesheet: scss
+   - routing: yes
+   - stylesheet: scss
 
 3. ggf npm installation neu starten
    `$ npm i --force`
@@ -27,17 +27,17 @@
    `$ npm run start`
 
 1. alles angucken
-  - /app/src/*
+   - /app/src/*
 
 # componenten erstellen
 
 1. todo-details componente erstellen
-  - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "todo-details"
-  - alternativ cli: ng generate component todo-details
+   - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "todo-details"
+   - alternativ cli: ng generate component todo-details
 
 2. dashboard componente erstellen
-  - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "dashboard"
-  - alternativ cli: ng generate component dashboard
+   - PHPStorm /app/src/* RMB -> new -> angular schematic -> component -> "dashboard"
+   - alternativ cli: ng generate component dashboard
 
 # routing
 
@@ -87,8 +87,8 @@ export interface Task {
 # services
 
 1. api-service erstellen
-  - PHPStorm /app/* RMB -> new -> angular schematic -> service -> "api"
-  - alternativ cli: ng generate service api
+   - PHPStorm /app/* RMB -> new -> angular schematic -> service -> "api"
+   - alternativ cli: ng generate service api
 
 2. quelltext
 
@@ -253,12 +253,7 @@ export class DashboardComponent implements OnInit {
 ```typescript
 // src/app/dashboard/dashboard.component.ts
 
-public
-showInlineDetails(task
-:
-Task
-):
-void {
+public showInlineDetails(task: Task): void {
   this.inlineTask = task;
 }
 ```
@@ -441,50 +436,36 @@ export class TodoDetailsComponent implements OnInit {
 // src/app/todo-details/todo-details.component.ts
 
 // change property
-@Input()
-todo
-:
-Task | undefined;
+@Input() todo: Task | undefined;
 
 // add property
-@Output()
-todoChange = new EventEmitter<Task>();
+@Output() todoChange = new EventEmitter<Task>();
 
 
-ngOnInit()
-:
-void {
+ngOnInit(): void {
   // add if
-  if(!
-this.todo
-)
-{
-  this.$activatedRoute.paramMap.subscribe(
-    (params) => {
-      this.todo = this.$apiService.getTodoAsReference(
-        parseInt(
-          params.get('id')!
-        )
-      );
-
-      this.title?.setValue(this.todo.title);
-      this.description?.setValue(this.todo.description);
-    }
-  );
+  if(!this.todo) {
+    this.$activatedRoute.paramMap.subscribe(
+      (params) => {
+        this.todo = this.$apiService.getTodoAsReference(
+          parseInt(
+            params.get('id')!
+          )
+        );
+  
+        this.title?.setValue(this.todo.title);
+        this.description?.setValue(this.todo.description);
+      }
+    );
   // add else
-}
-else
-{
-  this.title?.setValue(this.todo.title);
-  this.description?.setValue(this.todo.description);
-}
+  } else {
+    this.title?.setValue(this.todo.title);
+    this.description?.setValue(this.todo.description);
+  }
 }
 
 
-public
-submitForm()
-:
-void {
+public submitForm(): void {
   this.todo!.title = this.title!.value;
   this.todo!.description = this.description!.value;
 
@@ -508,5 +489,11 @@ void {
 # phpStorm
 
 1. package.json / composer.json
-  1. play button
-  2. version autovervollständigung
+   1. play button
+   2. version autovervollständigung
+2. tests
+   1. play button
+   2. auswertung
+3. rename Task -> Todo
+4. scaffolding
+5. 
