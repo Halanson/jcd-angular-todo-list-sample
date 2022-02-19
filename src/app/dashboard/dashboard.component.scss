@@ -1,0 +1,29 @@
+.todo-head {
+  display: flex;
+  font-weight: bold;
+}
+
+.todo-item {
+  display: flex;
+}
+
+.nr {
+  flex: 1 1 100%;
+  max-width: 10%;
+}
+
+.title {
+  flex: 1 1 100%;
+  max-width: 20%;
+}
+
+.description {
+  flex: 1 1 0;
+  max-width: 100%;
+}
+
+.actions {
+  display: flex;
+  flex: 1 1 100%;
+  max-width: 10%;
+}

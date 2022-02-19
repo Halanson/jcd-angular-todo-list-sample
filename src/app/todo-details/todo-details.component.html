@@ -1,0 +1,62 @@
+<h1>Details of #{{ todo?.id }} - {{ todo?.title }}</h1>
+
+<a routerLink="/dashboard">zurück</a>
+
+
+<hr>
+
+
+<h3>reactive forms (empfohlen)</h3>
+<form (submit)="submitForm()"
+      [formGroup]="todoForm"
+>
+  <input formControlName="title"
+         placeholder="title"
+         required
+         type="text"
+  />
+  <br>
+  <textarea formControlName="description"
+            placeholder="description"
+  >
+  </textarea>
+  <br>
+  <button type="submit">
+    save
+  </button>
+
+</form>
+
+
+<hr>
+
+
+<h3>model form</h3>
+<form>
+  <input [(ngModel)]="todo!.title"
+         name="title"
+         placeholder="title"
+         required
+         type="text"
+  >
+  <br>
+  <textarea [(ngModel)]="todo!.description"
+            name="description"
+            placeholder="description"
+  >
+  </textarea>
+  <br>
+  <button (click)="scope.saved = !scope.saved"
+          *ngIf="{saved: false} as scope"
+          type="button"
+  >
+    {{ scope.saved
+       ? 'saved!'
+       : '(pseudo) save' }}
+  </button>
+</form>
+
+<hr>
+
+<h3>live model-value</h3>
+<pre>{{ todo | json}}</pre>

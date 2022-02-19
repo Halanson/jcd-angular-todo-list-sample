@@ -1,0 +1,31 @@
+<h1>Dashboard</h1>
+
+<div class="todo-head">
+  <div class="nr">Nr.</div>
+  <div class="title">Title</div>
+  <div class="description">Description</div>
+  <div class="actions">Actions</div>
+</div>
+
+<div class="todo-list">
+  <div *ngFor="let task of tasks"
+       class="todo-item"
+  >
+    <div class="nr">#{{ task.id }}</div>
+    <div class="title">{{ task.title }}</div>
+    <div class="description">{{ task.description }}</div>
+    <div class="actions">
+      <a [routerLink]="['/detail', task.id]"> route </a> &nbsp;
+      <div (click)="showInlineDetails(task)">
+        inline
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-todo-details *ngIf="inlineTask"
+                  [(todo)]="inlineTask"
+>
+
+</app-todo-details>
